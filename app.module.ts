@@ -18,6 +18,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { CourseFormComponent } from './course-form/course-form.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostService } from './services/post.service';
+import { MyFollowersComponent } from './my-followers/my-followers.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { PostService } from './services/post.service';
     InputFormatDirective,
     ContactFormComponent,
     CourseFormComponent,
-    PostsComponent
+    PostsComponent,
+    MyFollowersComponent
   ],
   imports: [
     BrowserModule,

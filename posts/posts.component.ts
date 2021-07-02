@@ -18,11 +18,13 @@ posts: any;
     .subscribe(
       response => {
       this.posts = response;
+      console.log('data returned from server',this.posts);
     }, 
-      error => {
-      alert('An unexpected error has occured.');
-      console.log(error);
-    });
+      //error => {
+     // alert('An unexpected error has occured.');
+     // console.log('Error.....',error);
+    //}
+    );
 
   }
 
@@ -37,10 +39,11 @@ posts: any;
       this.posts.splice(0, 0, post); //0 starting postion
       console.log(response);          //0 delete object
     }, 
-      error =>{
-      alert('An unexpected error has occured.');
-      console.log(error);
-    });                               //add post object at index 0 or google splice
+    //   error =>{
+    //   alert('An unexpected error has occured.');
+    //   console.log(error);
+    // }
+    );                               //add post object at index 0 or google splice
   }
 
   deletePost(post: HTMLInputElement){

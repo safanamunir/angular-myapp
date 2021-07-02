@@ -18,7 +18,8 @@ export class PostService {
   }
 
   getPosts(){
-   return this.http.get(this.url);
+   return this.http.get(this.url)
+  .pipe(catchError(this.handleError));
 
   }
 
@@ -28,20 +29,20 @@ export class PostService {
 
   deletePost(id: any){
   return this.http.delete(this.url + '/' + id)
-  .pipe(catchError(this.handleError)); // applying the error handling method using the catchError() operator
+  //.pipe(catchError(this.handleError)); // applying the error handling method using the catchError() operator
   }
 
   //Error Handling Method
   handleError(error: HttpErrorResponse) {
-    let errorMessage = 'Unknown error!';
-    if (error.error instanceof ErrorEvent) {
+   // let errorMessage = 'Unknown error!';
+    //if (error.error instanceof ErrorEvent) {
       // Client-side errors
-      errorMessage = `Error: ${error.error.message}`;
-    } else {
+   //   errorMessage = `Error: ${error.error.message}`;
+    //} else {
       // Server-side errors
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    window.alert(errorMessage);
-    return throwError(errorMessage);
+     // errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    //}
+  //  window.alert(errorMessage);
+    return throwError(error);
   }
 }
